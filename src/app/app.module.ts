@@ -14,7 +14,7 @@ import { AuthService } from '../providers/auth-service/auth.service';
 import { HomePage } from '../pages/HomePage/homepage';
 import { OrganizationPage } from '../pages/OrganizationPage/organization';
 import { ProfilePage } from '../pages/ProfilePage/profile';
-
+import { Calendar} from '@ionic-native/calendar';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { ProfilePage } from '../pages/ProfilePage/profile';
   providers: [
     StatusBar,
     SplashScreen,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
