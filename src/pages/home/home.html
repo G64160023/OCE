@@ -1,12 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <img ion-right src="assets/imgs/bananalogo.png" class="navbarLogo" />
-    <ion-title>Home</ion-title>
+    
+    <ion-title>Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to OCE</h2>
+    <ion-content padding>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/logo.png">
+          </ion-avatar>
+          <h2>Name Name</h2>
+          <p>Student of IPB</p>
+        </ion-item>
   <ion-item (click)="logout()">
 	<ion-icon name="log-out" item-left></ion-icon>
 	Log out

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../providers/auth-service/auth.service';
 
-
-@IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
@@ -16,8 +14,7 @@ export class SignupPage {
 
 	constructor(
 		fb: FormBuilder,
-		private navCtrl: NavController,
-    private auth: AuthService
+		private navCtrl: NavController
 	) {
 		this.form = fb.group({
 			email: ['', Validators.compose([Validators.required, Validators.email])],
@@ -30,9 +27,6 @@ export class SignupPage {
 			email: data.email,
 			password: data.password
 		};
-		this.auth.signUp(credentials).then(
-			() => this.navCtrl.setRoot(TabsPage),
-			error => this.signupError = error.message
-		);
+		this.navCtrl.push(TabsPage);
   }
 }
