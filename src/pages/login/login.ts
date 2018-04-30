@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignupPage } from '../signup/signup';
-import { HomePage } from '../home/home';
 import { WelcomePage } from '../welcome/welcome';
 
 @Component({

@@ -5,23 +5,23 @@ import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AuthService } from '../providers/auth-service/auth.service';
+import { HomePage } from '../pages/HomePage/homepage';
+import { OrganizationPage } from '../pages/OrganizationPage/organization';
+import { ProfilePage } from '../pages/ProfilePage/profile';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
+    OrganizationPage,
+    ProfilePage,
     WelcomePage,
     LoginPage,
     SignupPage,
@@ -38,9 +38,9 @@ import { AuthService } from '../providers/auth-service/auth.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
+    OrganizationPage,
+    ProfilePage,
     WelcomePage,
     LoginPage,
     SignupPage,

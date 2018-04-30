@@ -4,10 +4,10 @@ import { AuthService } from '../../providers/auth-service/auth.service';
 import { WelcomePage } from '../welcome/welcome';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-profile',
+  templateUrl: 'profile.html'
 })
-export class HomePage {
+export class ProfilePage {
   
   constructor(public navCtrl: NavController, public app: App) {
     
