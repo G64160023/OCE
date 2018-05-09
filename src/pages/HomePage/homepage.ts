@@ -73,6 +73,10 @@ export class HomePage {
     this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
     this.getDaysOfMonth();
   }
-
+  swipe(event) {
+    if(event.direction === 2) {
+      this.navCtrl.parent.select(2);
+    }
+  }
 
 }

@@ -84,4 +84,5 @@
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.0" />
     <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
 </widget>
