@@ -15,6 +15,7 @@ import { HomePage } from '../pages/HomePage/homepage';
 import { OrganizationPage } from '../pages/OrganizationPage/organization';
 import { ProfilePage } from '../pages/ProfilePage/profile';
 import { Calendar} from '@ionic-native/calendar';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Calendar} from '@ionic-native/calendar';
     FormsModule,
     NgxErrorsModule,
     ReactiveFormsModule,
+    SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp)
    
   ],
