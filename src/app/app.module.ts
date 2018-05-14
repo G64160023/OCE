@@ -33,9 +33,19 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     FormsModule,
     NgxErrorsModule,
     ReactiveFormsModule,
-    SuperTabsModule.forRoot(),
-    IonicModule.forRoot(MyApp)
-   
+    IonicModule.forRoot(MyApp,{tabsPlacement: 'bottom',tabsHideOnSubPages: true,
+      platforms: {
+      android: {
+        tabsPlacement: 'top'
+      },
+      ios: {
+        tabsPlacement: 'button'
+      },
+      windows:{
+        tabsPlacement: 'top'
+      }
+    }
+  }),SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
