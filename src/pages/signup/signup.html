@@ -8,7 +8,10 @@
 
 	<form (ngSubmit)="signup()" [formGroup]="form">
 		<ion-list inset>
-
+			<ion-item >
+				<ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+			</ion-item>
+			
 			<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
 				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
 			</ion-item>
@@ -20,10 +23,11 @@
 			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
 				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
 			</ion-item>
-
+			
 			<div ngxErrors="password" #passwordErrors="ngxErrors">
 				<div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
 			</div>
+			
 		</ion-list>
 
 		<div  padding-horizontal>

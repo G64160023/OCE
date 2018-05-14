@@ -17,6 +17,8 @@ export class SignupPage {
 		private navCtrl: NavController
 	) {
 		this.form = fb.group({
+			name: '',
+						
 			email: ['', Validators.compose([Validators.required, Validators.email])],
 			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 		});
