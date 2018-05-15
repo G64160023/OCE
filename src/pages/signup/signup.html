@@ -3,36 +3,36 @@
 		<ion-title>Sign up</ion-title>
 	</ion-navbar>
 </ion-header>
+<ion-content padding>
+    <ion-list>
+  
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+      </ion-item>
 
-<ion-content>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
+	  </ion-item>
+	  
+	  <ion-item>
+        <ion-label floating>Telephone Number</ion-label>
+        <ion-input type="text" [(ngModel)]="telephone"></ion-input>
+      </ion-item>
+	  
+	  <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
 
-	<form (ngSubmit)="signup()" [formGroup]="form">
-		<ion-list inset>
-			<ion-item >
-				<ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
-			</ion-item>
-			
-			<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
-				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
-			</ion-item>
-
-			<div ngxErrors="email" #emailErrors="ngxErrors">
-				<div [ngxError]="['email', 'required']" [when]="['touched']">It should be a valid email</div>
-			</div>
-
-			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
-				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-			</ion-item>
-			
-			<div ngxErrors="password" #passwordErrors="ngxErrors">
-				<div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
-			</div>
-			
-		</ion-list>
-
-		<div  padding-horizontal>
-			<div class="form-error">{{signupError}}</div>
-
-			<button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>
-		</div>
-	</form>
+      <ion-item>
+        <ion-label floating>Retype Password</ion-label>
+        <ion-input type="password" [(ngModel)]="passwordTest"></ion-input>
+      </ion-item>
+  
+    </ion-list>
+  
+    <button ion-button block (click)="signUp()">Sign Up</button>
+    
+  </ion-content>

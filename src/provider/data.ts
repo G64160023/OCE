@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class Data {
-  public BASE_URL = 'http://fdb21.atspace.me';
+  public BASE_URL = 'http://orgcal.atspace.cc';
 
   public HAS_LOGGED_IN = 'status_login';
   

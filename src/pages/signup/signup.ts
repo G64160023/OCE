@@ -1,34 +1,80 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../providers/auth-service/auth.service';
+import { Data } from '../../provider/data';
+import { Http } from '@angular/http';
+import { ProfilePage } from '../ProfilePage/profile';
 
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-	signupError: string;
-	form: FormGroup;
-
+	name: any;
+	telephone: any;			
+	email: any;
+	password: any;
+	passwordTest:any;
 	constructor(
-		fb: FormBuilder,
-		private navCtrl: NavController
-	) {
-		this.form = fb.group({
-			name: '',
-						
-			email: ['', Validators.compose([Validators.required, Validators.email])],
-			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-		});
+		public navCtrl: NavController, 
+		public navParams: NavParams,
+		private data : Data,
+		public loadCtrl: LoadingController,
+		public alertCtrl: AlertController,
+		public http: Http
+	) {  }
+  
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SignupPage');
   }
-  signup() {
-		let data = this.form.value;
-		let credentials = {
-			email: data.email,
-			password: data.password
-		};
-		this.navCtrl.push(TabsPage);
+  signUp(){
+    if(this.name && this.email && this.password && this.telephone && (this.password == this.passwordTest)) {
+      let loading = this.loadCtrl.create({
+        content: 'loading..'
+      });
+
+      loading.present();
+
+      //apiPost
+      let input = {
+		name :this.name,
+        password: this.password,
+		email: this.email, 
+		telephone: this.telephone
+      };
+      console.log(input);
+      this.http.post(this.data.BASE_URL+"/create_user.php",input).subscribe(data => {
+      let response = data.json();
+      console.log(response); 
+      if(response.status==200){    
+        this.data.logout();
+        
+        this.data.login(response.data,"user");//ke lokal
+        
+        this.navCtrl.push(ProfilePage);      
+        loading.dismiss();
+      }
+      else if(response.status==409) {
+        loading.dismiss();
+          let alert = this.alertCtrl.create({
+            title: 'Email Already Taken',      
+            buttons: ['OK']
+          });
+          alert.present();
+          loading.dismiss();
+      }
+      else {
+        loading.dismiss();
+          let alert = this.alertCtrl.create({
+            title: 'Failed Creating New Account',      
+            buttons: ['OK']
+          });
+          alert.present();      
+          loading.dismiss();
+      }    
+      });
+      //apiPost  
+    }
   }
 }
