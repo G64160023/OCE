@@ -16,6 +16,9 @@ import { OrganizationPage } from '../pages/OrganizationPage/organization';
 import { ProfilePage } from '../pages/ProfilePage/profile';
 import { Calendar} from '@ionic-native/calendar';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
+import { Data } from '../provider/data';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     BrowserModule,
     FormsModule,
     NgxErrorsModule,
+    HttpModule,
+    IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp,{tabsPlacement: 'bottom',tabsHideOnSubPages: true,
       platforms: {
@@ -61,6 +66,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    Data,
     Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
