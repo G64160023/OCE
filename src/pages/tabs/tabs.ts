@@ -3,6 +3,8 @@ import { ProfilePage } from '../ProfilePage/profile';
 import { HomePage } from '../HomePage/homepage';
 import { OrganizationPage } from '../OrganizationPage/organization';
 import { SuperTabsController} from 'ionic2-super-tabs';
+import { Data } from '../../provider/data';
+import { Http } from '@angular/http';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -12,7 +14,7 @@ export class TabsPage {
   tab2Root = HomePage;
   tab3Root = OrganizationPage;
 
-  constructor(private superTabsCtrl: SuperTabsController) {
+  constructor(private superTabsCtrl: SuperTabsController, public data:Data,   public http:Http) {
   }
   hideToolbar() {
     this.superTabsCtrl.showToolbar(false);

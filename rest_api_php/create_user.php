@@ -18,6 +18,7 @@
          
                  $data =array(
                      'message' => "Register Success!",
+                     'data'=>"$request",
                      'status' => "200"
                  );
              }
@@ -34,6 +35,7 @@
                 'status' => "503"
             ); 
         }
-        echo json_encode($data);
+        echo json_encode($data.message);
+        echo json_encode($data.status);
     }
 ?>

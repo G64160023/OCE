@@ -19,6 +19,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../provider/data';
+import { AddeventPage } from '../pages/addevent/addevent';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { Data } from '../provider/data';
     HomePage,
     OrganizationPage,
     ProfilePage,
+    AddeventPage,
     WelcomePage,
     LoginPage,
     SignupPage,
@@ -61,7 +63,8 @@ import { Data } from '../provider/data';
     WelcomePage,
     LoginPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    AddeventPage
   ],
   providers: [
     StatusBar,

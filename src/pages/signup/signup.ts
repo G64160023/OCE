@@ -11,37 +11,41 @@ import { ProfilePage } from '../ProfilePage/profile';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-	name: any;
-	telephone: any;			
-	email: any;
-	password: any;
-	passwordTest:any;
-	constructor(
-		public navCtrl: NavController, 
-		public navParams: NavParams,
-		private data : Data,
-		public loadCtrl: LoadingController,
-		public alertCtrl: AlertController,
-		public http: Http
-	) {  }
-  
+
+  email:any;
+  password:any;
+  name:any;
+  telephone:any;
+  passwordTest:any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private data : Data,
+    public loadCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public http: Http) {
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
+
   signUp(){
     if(this.name && this.email && this.password && this.telephone && (this.password == this.passwordTest)) {
+
       let loading = this.loadCtrl.create({
-        content: 'loading..'
+        content: 'memuat..'
       });
 
       loading.present();
 
       //apiPost
       let input = {
-		name :this.name,
+        name :this.name,
         password: this.password,
-		email: this.email, 
-		telephone: this.telephone
+        email: this.email, 
+        telephone:this.telephone
       };
       console.log(input);
       this.http.post(this.data.BASE_URL+"/create_user.php",input).subscribe(data => {
@@ -52,7 +56,7 @@ export class SignupPage {
         
         this.data.login(response.data,"user");//ke lokal
         
-        this.navCtrl.push(ProfilePage);      
+        this.navCtrl.setRoot(TabsPage);      
         loading.dismiss();
       }
       else if(response.status==409) {
@@ -77,4 +81,5 @@ export class SignupPage {
       //apiPost  
     }
   }
+
 }

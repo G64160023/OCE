@@ -23,21 +23,19 @@ export class ProfilePage {
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController,
     public http: Http) {
-
-      this.data.getData().then((data) =>
-      {
-        console.log(data);
-        this.userData = data;
-        this.id = data.id;
-        this.email = data.email;
-        this.name = data.name;
-        this.telephone= data.telephone;
+    this.data.getData().then((data) =>
+    {
+      console.log(data);
+      this.userData = data;
+      this.id = data.id;
+      this.email = data.email;
+      this.name = data.name;
+      this.telephone= data.telephone;
       })
     }
   logout() {
     let confirm = this.alertCtrl.create({
       title: 'Sign Out?',
-      message: 'any job that have not uploaded to the server will not be saved?',
       buttons: [
         {
           text: 'Cancel',
