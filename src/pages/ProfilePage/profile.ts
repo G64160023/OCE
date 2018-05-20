@@ -27,9 +27,9 @@ export class ProfilePage {
     {
       console.log(data);
       this.userData = data;
-      this.id = data.id;
-      this.email = data.email;
+      
       this.name = data.name;
+      this.email = data.email;
       this.telephone= data.telephone;
       })
     }

@@ -8,49 +8,27 @@
 </ion-header>
 
 <ion-content>
-	<form (ngSubmit)="login()" [formGroup]="loginForm">
-		<ion-list inset>
+	<ion-list>	
+		<ion-item>
+			<ion-label floating>Email</ion-label>
+			<ion-input type="text" [(ngModel)]="email"></ion-input>
+		  </ion-item>
 
-			<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
-				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+		  <ion-item>
+				<ion-label floating>Password</ion-label>
+				<ion-input type="password" [(ngModel)]="password"></ion-input>
 			</ion-item>
+			<button ion-button block (click)="signUp()">Sign Up</button>
 
-			<div ngxErrors="email" #emailErrors="ngxErrors">
-				<div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']">It should be a valid email</div>
-			</div>
-
-			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
-				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-			</ion-item>
-
-			<div ngxErrors="password" #passwordErrors="ngxErrors">
-				<div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 5 characters</div>
-			</div>
-		</ion-list>
-
-		<div padding-horizontal>
-			<div class="form-error">{{loginError}}</div>
-
-			<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
 			<div class="login-footer">
-				<p>
-					<a href="#">Forgot password?</a>
+				<p>	
 					If you're a new user, please sign up.
 				</p>
 			</div>
-
-			<ion-list>
-
-				<button ion-button icon-left block clear >
-					<ion-icon name="logo-google" (click)="loginwithGugel()"></ion-icon>
-					Log in with Google
-				</button>
+			</ion-list>		
 
 				<button ion-button icon-left block clear (click)="signup()">
 					<ion-icon name="person-add"></ion-icon>
 					Sign up
 				</button>
-			</ion-list>
-		</div>
-	</form>
 </ion-content>

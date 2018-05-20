@@ -3,23 +3,23 @@
     <ion-list>
       <ion-item>
         <ion-label floating>Title</ion-label>
-        <ion-input type="text" [(ngModel)]="event.title" name="event.title"></ion-input>
+        <ion-input type="text" [(ngModel)]="event_name" name="Name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Location</ion-label>
-        <ion-input type="text" [(ngModel)]="event.location" name="event.location"></ion-input>
+        <ion-input type="text" [(ngModel)]="location" name="location"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Notes</ion-label>
-        <ion-input type="text" [(ngModel)]="event.message" name="event.message"></ion-input>
+        <ion-label floating>Hour</ion-label>
+        <ion-input type="text" [(ngModel)]="hour" name="Hour"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Start Date</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="event.startDate" name="event.startDate"></ion-datetime>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_start" name="startDate"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label floating>End Date</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="event.endDate" name="event.endDate"></ion-datetime>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_end" name="endDate"></ion-datetime>
       </ion-item>
       <ion-item>
         <button ion-button type="submit" full round>Save</button>
