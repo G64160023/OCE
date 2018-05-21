@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams,AlertController } from 'ionic-angular';
+import {  NavController, NavParams,AlertController, ViewController } from 'ionic-angular';
 import { Calendar } from '@ionic-native/calendar';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
+import * as moment from 'moment';
 /**
  * Generated class for the AddeventPage page.
  *
@@ -15,27 +16,46 @@ import { Http } from '@angular/http';
   templateUrl: 'addevent.html',
 })
 export class AddeventPage {
-  event_name: any;
-  location: any;
-  date_start: any;
-  date_end:any;
+  event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), allDay: false };
+  minDate = new Date().toISOString();
+  event_name:any;
+  location:any;
   hour:any;
-  title:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController, public calendar: Calendar, public data: Data, public http: Http ) {
+  date_start:any;
+  date_end:any;
+ userData:any;
+
+ id:any;
+  constructor(public navCtrl: NavController, private navParams: NavParams, public viewCtrl: ViewController,public data:Data, public http:Http, public calendar:Calendar, public alertCtrl:AlertController) {
+    let preselectedDate = moment(this.navParams.get('selectedDay')).format();
+    this.event.startTime = preselectedDate;
+    this.event.endTime = preselectedDate;
+    this.data.getData().then((data) =>
+    {
+      console.log(data);
+      this.userData = data;
+     this.id= data.id;
+      })
   }
+ 
+  cancel() {
+    this.viewCtrl.dismiss();
+  }
+ 
   save() {
     let input = {
-      name :this.event_name,
+      org_id: this.id,
+      event_name :this.event_name,
       location: this.location,
       date_start: this.date_start, 
       date_end: this.date_end, 
       hour: this.hour,
       };
     console.log(input);
-  this.http.post(this.data.BASE_URL+"/create_event.php",input).subscribe(data => {
+    this.http.post(this.data.BASE_URL+"/create_event.php",input).subscribe(data => {
       let response = data.json();
-      console.log(response); 
-    this.calendar.createEvent(response.name, response.location,response.hour, new Date(response.date_start), new Date(response.date_end)).then(
+      console.log(response); ;
+    this.calendar.createEvent(this.event_name, this.location,this.hour, new Date(this.date_start), new Date(this.date_end)).then(
       (msg) => {
         let alert = this.alertCtrl.create({
           title: 'Success!',
@@ -54,10 +74,8 @@ export class AddeventPage {
         alert.present();
       }
     );
-  });
-}
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddeventPage');
+    });
   }
-
+ 
 }
+  

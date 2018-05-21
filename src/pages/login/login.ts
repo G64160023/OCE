@@ -30,7 +30,7 @@ export class LoginPage {
 	ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
 	}
-	Login(){
+	login(){
 	if(this.email && this.password){
 		let loading = this.loadCtrl.create({
 			content: 'memuat..'
@@ -44,7 +44,7 @@ export class LoginPage {
 			password: this.password
 		};
 		console.log(input);
-		this.http.post(this.data.BASE_URL+"/login.php",input).subscribe(data => {
+		this.http.post(this.data.BASE_URL+"/login_user.php",input).subscribe(data => {
 		let response = data.json();
 		console.log(response); 
 		if(response.status==200){    

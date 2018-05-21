@@ -1,29 +1,39 @@
-<ion-content padding>
-  <form (ngSubmit)="save()">
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-buttons start>
+        <button ion-button icon-only (click)="cancel()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Event Details</ion-title>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content>
     <ion-list>
       <ion-item>
-        <ion-label floating>Title</ion-label>
-        <ion-input type="text" [(ngModel)]="event_name" name="Name"></ion-input>
+        <ion-input type="text" placeholder="Name" [(ngModel)]="event_name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Location</ion-label>
-        <ion-input type="text" [(ngModel)]="location" name="location"></ion-input>
-      </ion-item>
+          <ion-input type="text" placeholder="Location" [(ngModel)]="location"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Hour" [(ngModel)]="hour"></ion-input>
+          </ion-item>
       <ion-item>
-        <ion-label floating>Hour</ion-label>
-        <ion-input type="text" [(ngModel)]="hour" name="Hour"></ion-input>
+        <ion-label>Start</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_start" [min]="minDate"></ion-datetime>
       </ion-item>
+   
       <ion-item>
-        <ion-label floating>Start Date</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_start" name="startDate"></ion-datetime>
+        <ion-label>End</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_end" [min]="minDate"></ion-datetime>
       </ion-item>
-      <ion-item>
-        <ion-label floating>End Date</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_end" name="endDate"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <button ion-button type="submit" full round>Save</button>
-      </ion-item>
+   
+      
     </ion-list>
-  </form>
-</ion-content>
+   
+    <button ion-button full icon-left (click)="save()">
+      <ion-icon name="checkmark"></ion-icon> Add Event
+    </button>
+  </ion-content>

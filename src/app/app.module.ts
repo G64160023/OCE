@@ -20,6 +20,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../provider/data';
 import { AddeventPage } from '../pages/addevent/addevent';
+import {NgCalendarModule} from 'ionic2-calendar';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddeventPage } from '../pages/addevent/addevent';
   imports: [
     BrowserModule,
     FormsModule,
+    NgCalendarModule,
     NgxErrorsModule,
     HttpModule,
     IonicStorageModule.forRoot(),

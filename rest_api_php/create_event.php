@@ -8,7 +8,7 @@
     $location="";
     if (isset($postdata)) {
         $request = json_decode($postdata);
-        $event_name = $request->name;
+        $event_name = $request->event_name;
         $date_start = $request->date_start;
         $date_end = $request->date_end;
         $hour = $request->hour;

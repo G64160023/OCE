@@ -27,7 +27,6 @@ export class ProfilePage {
     {
       console.log(data);
       this.userData = data;
-      
       this.name = data.name;
       this.email = data.email;
       this.telephone= data.telephone;
