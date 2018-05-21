@@ -7,10 +7,10 @@ import { Http } from '@angular/http';
 import { ProfilePage } from '../ProfilePage/profile';
 
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: 'page-signupadmin',
+  templateUrl: 'signupadmin.html',
 })
-export class SignupPage {
+export class SignupadminPage {
 
   email:any;
   password:any;
@@ -62,7 +62,7 @@ export class SignupPage {
       else if(response.status==409) {
         loading.dismiss();
           let alert = this.alertCtrl.create({
-            title: 'Email Already Taken',      
+            title: 'Already Registered',      
             buttons: ['OK']
           });
           alert.present();

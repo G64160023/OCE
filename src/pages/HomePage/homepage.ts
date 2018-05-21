@@ -67,6 +67,7 @@ export class HomePage {
       }
     });
   }
+
  
   onViewTitleChanged(title) {
     this.viewTitle = title;

@@ -4,6 +4,8 @@ import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
 import { Http }  from '@angular/http';
 import { Data } from '../../provider/data';
+import { ChoosesignupPage } from '../choosesignup/choosesignup';
+import { ChooseloginPage } from '../chooselogin/chooselogin';
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html',
@@ -20,11 +22,11 @@ export class WelcomePage {
     this.testapi();
   }
   login(){
-  this.navCtrl.push(LoginPage);
+  this.navCtrl.push(ChooseloginPage);
   }
 
   signup(){
-  this.navCtrl.push(SignupPage);
+  this.navCtrl.push(ChoosesignupPage);
   }
   testapi(){
     this.http.get("http://orgcal.atspace.cc/db_connect.php").subscribe(data=>{

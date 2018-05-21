@@ -21,6 +21,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../provider/data';
 import { AddeventPage } from '../pages/addevent/addevent';
 import {NgCalendarModule} from 'ionic2-calendar';
+import { ChoosesignupPage } from '../pages/choosesignup/choosesignup';
+import { SignupadminPage } from '../pages/signupadmin/signupadmin';
+import { ChooseloginPage } from '../pages/chooselogin/chooselogin';
+import { LoginadminPage } from '../pages/loginadmin/loginadmin';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,13 @@ import {NgCalendarModule} from 'ionic2-calendar';
     HomePage,
     OrganizationPage,
     ProfilePage,
+    ChooseloginPage,
+    LoginadminPage,
     AddeventPage,
     WelcomePage,
     LoginPage,
+    ChoosesignupPage,
+    SignupadminPage,
     SignupPage,
     TabsPage
   ],
@@ -64,6 +72,10 @@ import {NgCalendarModule} from 'ionic2-calendar';
     ProfilePage,
     WelcomePage,
     LoginPage,
+    ChooseloginPage,
+    LoginadminPage,
+    ChoosesignupPage,
+    SignupadminPage,
     SignupPage,
     TabsPage,
     AddeventPage
