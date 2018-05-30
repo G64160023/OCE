@@ -7,6 +7,13 @@
 </ion-header>
 
 <ion-content>
-    
+  <ion-list>
+
+    <ion-item *ngFor="let org of orgs" (press)="seeDetail(org)">
+      <ion-label>{{org.name}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+
   
 </ion-content>

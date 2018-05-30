@@ -10,7 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
-import { AuthService } from '../providers/auth-service/auth.service';
 import { HomePage } from '../pages/HomePage/homepage';
 import { OrganizationPage } from '../pages/OrganizationPage/organization';
 import { ProfilePage } from '../pages/ProfilePage/profile';

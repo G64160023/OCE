@@ -29,6 +29,7 @@ export class HomePage {
        this.userData = data;
        this.id= data.id;
        })
+      this.getEvent();
     }
    getEvent(){
     this.http.get(this.data.BASE_URL+"/read_event.php?id="+this.id).subscribe(data => {
@@ -37,9 +38,7 @@ export class HomePage {
       if(response.status==200){
         this.events = response.data;
         console.log(this.events);
-        for(let event of this.events){
-
-        }
+        
       console.log(event);
       }
       else alert("No Data");
