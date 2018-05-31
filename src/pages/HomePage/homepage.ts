@@ -19,19 +19,21 @@ export class HomePage {
  userData:any;
   calendar = {
     mode: 'month',
-    currentDate: new Date()
+    currentDate: this.selectedDay
   };
   
   constructor(public navCtrl: NavController, private modalCtrl: ModalController, private alertCtrl: AlertController, public data:Data, public http:Http) {
-    this.data.getData().then((data) =>
-     {
-       console.log(data);
-       this.userData = data;
-       this.id= data.id;
-       })
-      this.getEvent();
+    
     }
-   getEvent(){
+    ionViewWillEnter() {
+    this.data.getData().then((data) =>
+    {
+      console.log(data);
+      this.id= data.id;
+     this.getEvent();
+      })
+    }
+    getEvent(){
     this.http.get(this.data.BASE_URL+"/read_event.php?id="+this.id).subscribe(data => {
       let response = data.json();
       console.log(response);

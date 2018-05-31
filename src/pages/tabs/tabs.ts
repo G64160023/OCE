@@ -5,6 +5,7 @@ import { OrganizationPage } from '../OrganizationPage/organization';
 import { SuperTabsController} from 'ionic2-super-tabs';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
+import { EventlistPage } from '../eventlist/eventlist';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -12,7 +13,8 @@ export class TabsPage {
 
   tab1Root = ProfilePage;
   tab2Root = HomePage;
-  tab3Root = OrganizationPage;
+  tab3Root = EventlistPage;
+  tab4Root = OrganizationPage;
 
   constructor(private superTabsCtrl: SuperTabsController, public data:Data,   public http:Http) {
   }

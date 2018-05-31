@@ -24,6 +24,8 @@ import { ChoosesignupPage } from '../pages/choosesignup/choosesignup';
 import { SignupadminPage } from '../pages/signupadmin/signupadmin';
 import { ChooseloginPage } from '../pages/chooselogin/chooselogin';
 import { LoginadminPage } from '../pages/loginadmin/loginadmin';
+import { EventlistPage } from '../pages/eventlist/eventlist';
+import { EditeventPage } from '../pages/editevent/editevent';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { LoginadminPage } from '../pages/loginadmin/loginadmin';
     ChoosesignupPage,
     SignupadminPage,
     SignupPage,
+    EditeventPage,
+    EventlistPage,
     TabsPage
+
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,8 @@ import { LoginadminPage } from '../pages/loginadmin/loginadmin';
     SignupadminPage,
     SignupPage,
     TabsPage,
+    EditeventPage,
+    EventlistPage,
     AddeventPage
   ],
   providers: [

@@ -18,8 +18,9 @@
           <ion-input type="text" placeholder="Location" [(ngModel)]="location"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Hour" [(ngModel)]="hour"></ion-input>
-          </ion-item>
+            <ion-label>Hour</ion-label>
+              <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="hour"></ion-datetime>
+            </ion-item>
       <ion-item>
         <ion-label>Start</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_start" [min]="minDate"></ion-datetime>
