@@ -19,7 +19,7 @@ id:any;
     this.data.getData().then((data) =>
     {
       console.log(data);
-      this.id= data.id;
+      this.id= data.org_id;
      this.getEvent();
      this.getOtherEvent();
       })

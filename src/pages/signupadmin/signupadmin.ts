@@ -54,7 +54,7 @@ export class SignupadminPage {
       if(response.status==200){    
         this.data.logout();
         
-        this.data.login(response.data,"user");//ke lokal
+        this.data.login(response.data,"admin");//ke lokal
         
         this.navCtrl.setRoot(TabsPage);      
         loading.dismiss();

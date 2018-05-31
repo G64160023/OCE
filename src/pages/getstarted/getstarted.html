@@ -1,0 +1,13 @@
+<ion-content>
+  <h1>Choose your Main Organization</h1>
+    <ion-list>
+  
+      <ion-item *ngFor="let org of orgs" (press)="seeDetail(org)">
+        <ion-label (click)="submit()">{{org.name}}</ion-label>
+      </ion-item>
+  
+    </ion-list>
+  
+    
+  </ion-content>
+  

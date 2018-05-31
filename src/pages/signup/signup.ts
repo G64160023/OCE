@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 import { ProfilePage } from '../ProfilePage/profile';
+import { GetstartedPage } from '../getstarted/getstarted';
 
 @Component({
   selector: 'page-signup',
@@ -56,7 +57,7 @@ export class SignupPage {
         
         this.data.login(response.data,"user");//ke lokal
         
-        this.navCtrl.setRoot(TabsPage);      
+        this.navCtrl.setRoot(GetstartedPage);      
         loading.dismiss();
       }
       else if(response.status==409) {

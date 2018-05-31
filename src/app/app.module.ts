@@ -26,6 +26,10 @@ import { ChooseloginPage } from '../pages/chooselogin/chooselogin';
 import { LoginadminPage } from '../pages/loginadmin/loginadmin';
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { EditeventPage } from '../pages/editevent/editevent';
+import { GetstartedPage } from '../pages/getstarted/getstarted';
+import { HomepageuserPage } from '../pages/homepageuser/homepageuser';
+import { EventlistuserPage } from '../pages/eventlistuser/eventlistuser';
+import { TabsuserPage } from '../pages/tabsuser/tabsuser';
 
 @NgModule({
   declarations: [
@@ -36,10 +40,14 @@ import { EditeventPage } from '../pages/editevent/editevent';
     ChooseloginPage,
     LoginadminPage,
     AddeventPage,
+    HomepageuserPage,
+    EventlistuserPage,
+    TabsuserPage,
     WelcomePage,
     LoginPage,
     ChoosesignupPage,
     SignupadminPage,
+    GetstartedPage,
     SignupPage,
     EditeventPage,
     EventlistPage,
@@ -79,11 +87,15 @@ import { EditeventPage } from '../pages/editevent/editevent';
     ChooseloginPage,
     LoginadminPage,
     ChoosesignupPage,
+    HomepageuserPage,
+    EventlistuserPage,
+    TabsuserPage,
     SignupadminPage,
     SignupPage,
     TabsPage,
     EditeventPage,
     EventlistPage,
+    GetstartedPage,
     AddeventPage
   ],
   providers: [

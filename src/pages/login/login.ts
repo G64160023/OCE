@@ -6,6 +6,7 @@ import { SignupPage } from '../signup/signup';
 import { WelcomePage } from '../welcome/welcome';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
+import { TabsuserPage } from '../tabsuser/tabsuser';
 
 @Component({
   selector: 'page-login',
@@ -52,7 +53,7 @@ export class LoginPage {
 			
 			this.data.login(response.data,"user");//ke lokal
 			
-			this.navCtrl.setRoot(TabsPage);
+			this.navCtrl.setRoot(TabsuserPage);
 			loading.dismiss();
 		}
 		else {
