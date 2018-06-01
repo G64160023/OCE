@@ -4,12 +4,6 @@ import { Calendar } from '@ionic-native/calendar';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 import * as moment from 'moment';
-/**
- * Generated class for the AddeventPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-addevent',
@@ -24,6 +18,7 @@ export class AddeventPage {
   date_start:any;
   date_end:any;
  userData:any;
+ org_id:any;
 
  id:any;
   constructor(public navCtrl: NavController, private navParams: NavParams, public viewCtrl: ViewController,public data:Data, public http:Http, public calendar:Calendar, public alertCtrl:AlertController) {
@@ -34,7 +29,8 @@ export class AddeventPage {
     {
       console.log(data);
       this.userData = data;
-     this.id= data.id;
+     this.org_id=data.org_id;
+     console.log(this.org_id);
       })
   }
  
@@ -44,7 +40,7 @@ export class AddeventPage {
  
   save() {
     let input = {
-      org_id: this.id,
+      org_id: this.org_id,
       event_name :this.event_name,
       location: this.location,
       date_start: this.date_start, 

@@ -43,7 +43,7 @@ id:any;
       
       let prompt = this.alertCtrl.create({
         title: data.event_name,
-        message: data.location+"<br>"+data.hour+"<br>"+data.date_start+"<br>"+data.date_end,
+        message: "Location: "+data.location+"<br>Starts At: "+data.hour+"<br>Date Start: "+data.date_start+"<br>Date End: "+data.date_end,
         buttons: [
           {
             text: 'Delete',
@@ -66,7 +66,8 @@ id:any;
       
       let prompt = this.alertCtrl.create({
         title: data.event_name,
-        message: data.location+"<br>"+data.hour+"<br>"+data.date_start+"<br>"+data.date_end,
+        message: "Location: "+data.location+"<br>Starts At: "+data.hour+"<br>Date Start: "+data.date_start+"<br>Date End: "+data.date_end
+                +"<br>Event By: "+data.name+"<br>Contact: "+data.email,
       });
       prompt.present();
     }

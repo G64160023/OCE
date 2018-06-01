@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController, AlertController } from 'io
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 import { TabsPage } from '../tabs/tabs';
+import { TabsuserPage } from '../tabsuser/tabsuser';
 
 
 @Component({
@@ -27,8 +28,6 @@ export class GetstartedPage {
       this.id = data.id;
     })
     this.getOrganizations();
-    let temp = this.navParams.data;
-      this.org_id=temp.org_id;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetstartedPage');
@@ -55,7 +54,7 @@ export class GetstartedPage {
       let response = data.json();
       console.log(response);
     });
-    this.navCtrl.push(TabsPage); 
+    this.navCtrl.push(TabsuserPage); 
   }
 
 }

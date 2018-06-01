@@ -9,10 +9,12 @@ import { ProfilePage } from '../pages/ProfilePage/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import { OrganizationPage } from '../pages/OrganizationPage/organization';
 import { LoginPage } from '../pages/login/login';
+import { TabsuserPage } from '../pages/tabsuser/tabsuser';
 @Component({
 templateUrl: 'app.html'
 })
 export class MyApp {
+  role:any;
    rootPage:any = WelcomePage; // Replace tabsPage with Welcome
    pages: Array<{title: string, component: any}>;
    constructor(public platform: Platform, public statusBar: StatusBar, public data: Data, public splashScreen: SplashScreen) {
@@ -34,9 +36,18 @@ export class MyApp {
       this.splashScreen.hide();
     });
     //Session
+    this.data.getRole().then((role)=>
+  {
+    this.role=role;
+  })
     this.data.isLogin().then((value)=>{
       if(value){
+        if(this.role="admin"){
         this.rootPage = TabsPage;
+      }
+        else{
+          this.rootPage=TabsuserPage;
+        }
       } else {
          this.rootPage = WelcomePage;
       }    
