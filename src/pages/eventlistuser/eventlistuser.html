@@ -11,17 +11,9 @@
     </ion-navbar>
   
   </ion-header>
-  
-  
   <ion-content>
-    <ion-list>
-      Your Events:
-    </ion-list>
-      <ion-item *ngFor="let event of events" (press)="seeDetail(event)">
-          <ion-label>{{event.event_name}}</ion-label>
-        </ion-item>
         <ion-list>
-          Other Events:
+          Events Available:
         </ion-list>
           <ion-item *ngFor="let oevent of other_events" (press)="seeDetailOther(oevent)">
               <ion-label>{{oevent.event_name}}</ion-label>
