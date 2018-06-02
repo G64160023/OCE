@@ -36,22 +36,23 @@ export class MyApp {
       this.splashScreen.hide();
     });
     //Session
-    this.data.getRole().then((role)=>
-  {
-    this.role=role;
-  })
     this.data.isLogin().then((value)=>{
       if(value){
-        if(this.role="admin"){
-        this.rootPage = TabsPage;
-      }
-        else{
-          this.rootPage=TabsuserPage;
-        }
+        this.data.getRole().then((value)=>{
+          switch(value){
+            case "admin": this.rootPage = TabsPage; 
+              break;
+            case "user": this.rootPage = TabsuserPage;
+              break;
+            default : this.rootPage = WelcomePage;
+              break;
+          }
+        })
       } else {
          this.rootPage = WelcomePage;
       }    
-    });  
+    });
+      
   }
  
 }

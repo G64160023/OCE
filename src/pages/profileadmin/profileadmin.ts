@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, App, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import {  NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 import { EditprofilePage } from '../editprofile/editprofile';
-import { EdituserprofilePage } from '../edituserprofile/edituserprofile';
 
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html'
+  selector: 'page-profileadmin',
+  templateUrl: 'profileadmin.html',
 })
-export class ProfilePage {
+export class ProfileadminPage {
 
   id:any;
   email:any;
@@ -56,6 +55,7 @@ export class ProfilePage {
     confirm.present();
   }
   editProfile(){
-      this.navCtrl.push(EdituserprofilePage, this.userData);
+      this.navCtrl.push(EditprofilePage, this.userData);
     }
-  }
+  
+}

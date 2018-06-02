@@ -30,6 +30,9 @@ import { GetstartedPage } from '../pages/getstarted/getstarted';
 import { HomepageuserPage } from '../pages/homepageuser/homepageuser';
 import { EventlistuserPage } from '../pages/eventlistuser/eventlistuser';
 import { TabsuserPage } from '../pages/tabsuser/tabsuser';
+import { ProfileadminPage } from '../pages/profileadmin/profileadmin';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
+import { EdituserprofilePage } from '../pages/edituserprofile/edituserprofile';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { TabsuserPage } from '../pages/tabsuser/tabsuser';
     HomePage,
     OrganizationPage,
     ProfilePage,
+    ProfileadminPage,
+    EditprofilePage,
+    EdituserprofilePage,
     ChooseloginPage,
     LoginadminPage,
     AddeventPage,
@@ -82,6 +88,8 @@ import { TabsuserPage } from '../pages/tabsuser/tabsuser';
     HomePage,
     OrganizationPage,
     ProfilePage,
+    ProfileadminPage,
+    EditprofilePage,
     WelcomePage,
     LoginPage,
     ChooseloginPage,
@@ -91,11 +99,14 @@ import { TabsuserPage } from '../pages/tabsuser/tabsuser';
     EventlistuserPage,
     TabsuserPage,
     SignupadminPage,
+    ProfileadminPage,
+    EditprofilePage,
     SignupPage,
     TabsPage,
     EditeventPage,
     EventlistPage,
     GetstartedPage,
+    EdituserprofilePage,
     AddeventPage
   ],
   providers: [
