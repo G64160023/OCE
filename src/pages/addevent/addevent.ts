@@ -44,14 +44,13 @@ export class AddeventPage {
       event_name :this.event_name,
       location: this.location,
       date_start: this.date_start, 
-      date_end: this.date_end, 
-      hour: this.hour,
+      date_end: this.date_end,
       };
     console.log(input);
     this.http.post(this.data.BASE_URL+"/create_event.php",input).subscribe(data => {
       let response = data.json();
       console.log(response); ;
-    this.calendar.createEvent(this.event_name, this.location,this.hour, new Date(this.date_start), new Date(this.date_end)).then(
+    this.calendar.createEvent(this.event_name, this.location, "",new Date(this.date_start), new Date(this.date_end)).then(
       (msg) => {
         let alert = this.alertCtrl.create({
           title: 'Success!',

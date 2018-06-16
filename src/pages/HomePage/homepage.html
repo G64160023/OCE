@@ -7,6 +7,11 @@
         <button ion-button icon-only (click)="addEvent()">
           <ion-icon name="add"></ion-icon>
         </button>
+        </ion-buttons>
+        <ion-buttons >
+          <button ion-button (click)="loadEvents()">
+          load event  
+          </button>
       </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -18,7 +23,7 @@
           (onEventSelected)="onEventSelected($event)"
           (onTitleChanged)="onViewTitleChanged($event)"
           (onTimeSelected)="onTimeSelected($event)"
-          step="30"
+          [step]="15"
           class="calendar">
         </calendar>
   </ion-content>

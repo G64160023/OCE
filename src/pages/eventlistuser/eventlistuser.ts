@@ -43,7 +43,7 @@ export class EventlistuserPage {
         
         let prompt = this.alertCtrl.create({
           title: data.event_name,
-          message: data.location+"<br>"+data.hour+"<br>"+data.date_start+"<br>"+data.date_end,
+          message: data.location+"<br>"+data.date_start+"<br>"+data.date_end,
           
         });
         prompt.present();

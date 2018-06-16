@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 import { AddeventPage } from '../addevent/addevent';
+import { CalendarComponent } from 'ionic2-calendar/calendar';
 
 @Component({
   selector: 'page-homepageuser',
   templateUrl: 'homepageuser.html',
 })
 export class HomepageuserPage {
+  @ViewChild(CalendarComponent) myCalendar:CalendarComponent;
+ 
   eventSource = [];
   viewTitle: string;
   selectedDay = new Date();
@@ -33,14 +36,21 @@ export class HomepageuserPage {
       })
     }
     getEvent(){
-    this.http.get(this.data.BASE_URL+"/read_event.php?id="+this.id).subscribe(data => {
+    this.http.get(this.data.BASE_URL+"/read_other_event.php?id="+this.id).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status==200){
         this.events = response.data;
         console.log(this.events);
-        
-      console.log(event);
+        for(let event of this.events){
+        this.eventSource.push({
+          title: event.event_name,
+          startTime: new Date(event.date_start),
+          endTime: new Date(event.date_end),
+          allDay: false
+      });
+    }
+      console.log(this.eventSource);
       }
       else alert("No Data");
     });
@@ -66,4 +76,8 @@ export class HomepageuserPage {
   onTimeSelected(ev) {
     this.selectedDay = ev.selectedTime;
   }
+  loadEvents() {
+  
+    this.myCalendar.loadEvents();
+}  
 }

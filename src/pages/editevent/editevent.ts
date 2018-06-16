@@ -57,7 +57,6 @@ export class EditeventPage {
         location: this.location, 
         date_start: this.date_start,
         date_end: this.date_end,
-        hour:this.hour,
       };
       console.log(input);
       this.http.post(this.data.BASE_URL+"/edit_event.php?id_ev="+this.id_ev,input).subscribe(data => {
