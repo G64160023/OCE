@@ -3,11 +3,7 @@
       <ion-title>
         {{ viewTitle }}
       </ion-title>
-      <ion-buttons >
-        <button ion-button (click)="loadEvents()">
-        load event  
-        </button>
-    </ion-buttons>
+     
     </ion-navbar>
   </ion-header>
    
@@ -21,4 +17,9 @@
           step="30"
           class="calendar">
         </calendar>
+        <ion-buttons >
+          <button ion-button (click)="loadEvents()">
+          load event  
+          </button>
+      </ion-buttons>
   </ion-content>

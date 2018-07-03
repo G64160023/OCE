@@ -13,6 +13,7 @@ export class EditeventPage {
   id:any;
   id_ev:any;
   event_name:any;
+  minDate = new Date().toISOString();
   location:any;
   hour:any;
   date_start:any;

@@ -14,6 +14,7 @@ export class HomepageuserPage {
   @ViewChild(CalendarComponent) myCalendar:CalendarComponent;
  
   eventSource = [];
+  eventsData=[];
   viewTitle: string;
   selectedDay = new Date();
  id:any;
@@ -33,6 +34,8 @@ export class HomepageuserPage {
       console.log(data);
       this.id= data.id;
      this.getEvent();
+     this.eventSource=this.eventsData;
+     console.log(this.eventSource);
       })
     }
     getEvent(){
@@ -43,14 +46,13 @@ export class HomepageuserPage {
         this.events = response.data;
         console.log(this.events);
         for(let event of this.events){
-        this.eventSource.push({
+        this.eventsData.push({
           title: event.event_name,
           startTime: new Date(event.date_start),
           endTime: new Date(event.date_end),
           allDay: false
       });
     }
-      console.log(this.eventSource);
       }
       else alert("No Data");
     });
@@ -77,7 +79,8 @@ export class HomepageuserPage {
     this.selectedDay = ev.selectedTime;
   }
   loadEvents() {
-  
+  this.eventSource=this.eventsData;
+  console.log(this.eventSource);
     this.myCalendar.loadEvents();
 }  
 }

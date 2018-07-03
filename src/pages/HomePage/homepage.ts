@@ -18,6 +18,7 @@ export class HomePage {
   startTime=new Date();
   endTime=new Date();
   eventSource = [];
+  eventsData=[];
   viewTitle: string;
   selectedDay = new Date();
  id:any;
@@ -32,29 +33,30 @@ export class HomePage {
     
     }
     ionViewWillEnter() {
-    this.data.getData().then((data) =>
+      this.data.getData().then((data) =>
     {
       console.log(data);
       this.id= data.org_id;
       this.getEvent();
-      })
+      });
     }
     getEvent(){
       console.log(this.id);
     this.http.get(this.data.BASE_URL+"/read_event.php?id="+this.id).subscribe(data => {
       let response = data.json();
       console.log(response);
-      if(response.status==200){
+      if(response.data!=null){
         this.events = response.data;
         console.log(this.events);
         for(let event of this.events){
-        this.eventSource.push({
-          title: event.event_name,
-          startTime: new Date(event.date_start),
-          endTime: new Date(event.date_end),
-          allDay: false
-      });
-    }
+          this.eventsData.push({
+            title: event.event_name,
+            startTime: new Date(event.date_start),
+            endTime: new Date(event.date_end),
+            allDay: false
+        });
+      }
+      this.eventSource=this.eventsData;
       console.log(this.eventSource);
       }
       else alert("No Data");
@@ -62,18 +64,7 @@ export class HomePage {
     //apiGet  
   }
   addEvent() {
-    let modal = this.modalCtrl.create(AddeventPage, {selectedDay: this.selectedDay});
-    modal.present();
-    this.getEvent();
-    console.log(this.events);
-    modal.onDidDismiss(data => {
-      if (data) {
-        let eventData = this.events;
-        console.log(eventData);
-        eventData.startTime = new Date(this.events.date_start);
-        eventData.endTime = new Date(this.events.date_end);
-      }
-    });
+   this.navCtrl.push(AddeventPage);
   }
 
  
@@ -98,7 +89,6 @@ export class HomePage {
   }
   
   loadEvents() {
-  
-    this.myCalendar.loadEvents();
-}  
+      this.myCalendar.loadEvents(); 
+  }  
 }

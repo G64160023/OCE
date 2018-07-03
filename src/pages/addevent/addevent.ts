@@ -22,9 +22,7 @@ export class AddeventPage {
 
  id:any;
   constructor(public navCtrl: NavController, private navParams: NavParams, public viewCtrl: ViewController,public data:Data, public http:Http, public calendar:Calendar, public alertCtrl:AlertController) {
-    let preselectedDate = moment(this.navParams.get('selectedDay')).format();
-    this.event.startTime = preselectedDate;
-    this.event.endTime = preselectedDate;
+    
     this.data.getData().then((data) =>
     {
       console.log(data);
